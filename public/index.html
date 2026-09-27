@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Coin Purse</title>
+
+  <link
+    rel="stylesheet"
+    href="/style.css"
+  />
+</head>
+
+<body>
+
+  <div class="shell">
+
+    <header class="topbar">
+
+      <div>
+        <div class="eyebrow">
+          AUTONOMOUS PAYMENT CONTROL
+        </div>
+
+        <h1>
+          Coin Purse
+        </h1>
+
+        <p class="subtitle">
+          An agent that pays, but can't be drained.
+        </p>
+      </div>
+
+      <div class="status">
+        <span class="status-dot"></span>
+        TESTNET
+      </div>
+
+    </header>
+
+
+    <main>
+
+      <!-- POLICY -->
+
+      <section class="policy-grid">
+
+        <div class="metric-card">
+
+          <span class="metric-label">
+            RUN BUDGET
+          </span>
+
+          <strong id="budget">
+            $5.00
+          </strong>
+
+          <span class="metric-detail">
+            hard limit
+          </span>
+
+        </div>
+
+
+        <div class="metric-card">
+
+          <span class="metric-label">
+            SPENT
+          </span>
+
+          <strong id="spent">
+            $0.00
+          </strong>
+
+          <span
+            class="metric-detail"
+            id="remaining"
+          >
+            $5.00 remaining
+          </span>
+
+        </div>
+
+
+        <div class="metric-card">
+
+          <span class="metric-label">
+            PER-CALL LIMIT
+          </span>
+
+          <strong id="per-call">
+            $0.10
+          </strong>
+
+          <span class="metric-detail">
+            maximum payment
+          </span>
+
+        </div>
+
+
+        <div class="metric-card">
+
+          <span class="metric-label">
+            NETWORK
+          </span>
+
+          <strong class="network">
+            Base Sepolia
+          </strong>
+
+          <span class="metric-detail">
+            testnet only
+          </span>
+
+        </div>
+
+      </section>
+
+
+      <!-- RESEARCH -->
+
+      <section class="research-panel">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="section-kicker">
+              AGENT
+            </span>
+
+            <h2>
+              Research
+            </h2>
+          </div>
+
+          <span class="agent-state">
+            PAYMENT POLICY ACTIVE
+          </span>
+
+        </div>
+
+
+        <form id="research-form">
+
+          <label for="question">
+            What should the agent research?
+          </label>
+
+          <div class="input-row">
+
+            <input
+              id="question"
+              name="question"
+              type="text"
+              value="How might upcoming monsoon rainfall affect Pune mandi crop prices?"
+              autocomplete="off"
+            />
+
+            <button
+              id="run-button"
+              type="submit"
+            >
+              Run Agent
+            </button>
+
+          </div>
+
+        </form>
+
+
+        <div
+          id="agent-output"
+          class="agent-output hidden"
+        ></div>
+
+      </section>
+
+
+      <!-- SELLERS -->
+
+      <section>
+
+        <div class="section-heading">
+
+          <div>
+            <span class="section-kicker">
+              PAYMENT DECISIONS
+            </span>
+
+            <h2>
+              Research Stalls
+            </h2>
+          </div>
+
+          <span class="live-label">
+            LIVE
+          </span>
+
+        </div>
+
+
+        <div class="seller-grid">
+
+          <!-- HONEST -->
+
+          <article class="seller-card">
+
+            <div class="seller-header">
+
+              <div>
+
+                <span class="seller-type">
+                  VERIFIED SOURCE
+                </span>
+
+                <h3>
+                  Honest Research Stall
+                </h3>
+
+              </div>
+
+              <span class="seller-port">
+                :4041
+              </span>
+
+            </div>
+
+
+            <div class="price">
+
+              <strong>
+                $0.02
+              </strong>
+
+              <span>
+                USDC / request
+              </span>
+
+            </div>
+
+
+            <div class="decision approved">
+
+              <span class="decision-icon">
+                ✓
+              </span>
+
+              <div>
+
+                <strong>
+                  Within spending policy
+                </strong>
+
+                <span>
+                  Payment can be authorized
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- ROGUE -->
+
+          <article class="seller-card rogue">
+
+            <div class="seller-header">
+
+              <div>
+
+                <span class="seller-type">
+                  SECURITY TEST
+                </span>
+
+                <h3>
+                  Rogue Research Stall
+                </h3>
+
+              </div>
+
+              <span class="seller-port">
+                :4042
+              </span>
+
+            </div>
+
+
+            <div class="price">
+
+              <strong>
+                $4.99
+              </strong>
+
+              <span>
+                USDC / request
+              </span>
+
+            </div>
+
+
+            <div class="decision refused">
+
+              <span class="decision-icon">
+                ×
+              </span>
+
+              <div>
+
+                <strong>
+                  Refused before signing
+                </strong>
+
+                <span>
+                  Exceeds $0.10 per-call limit
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- AUDIT -->
+
+      <section class="audit-section">
+
+        <div class="section-heading">
+
+          <div>
+            <span class="section-kicker">
+              DURABLE RECORD
+            </span>
+
+            <h2>
+              Payment Audit
+            </h2>
+          </div>
+
+          <span class="database-label">
+            SQLite
+          </span>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+          <table>
+
+            <thead>
+
+              <tr>
+                <th>Time</th>
+                <th>Seller</th>
+                <th>Amount</th>
+                <th>Decision</th>
+                <th>Reason</th>
+                <th>Transaction</th>
+              </tr>
+
+            </thead>
+
+            <tbody id="audit-body">
+
+              <tr>
+                <td colspan="6" class="empty">
+                  No payment decisions yet.
+                </td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </section>
+
+
+      <!-- SECURITY MODEL -->
+
+      <section class="security-section">
+
+        <div>
+
+          <span class="section-kicker">
+            SECURITY MODEL
+          </span>
+
+          <h2>
+            The agent chooses the data.
+            The purse chooses the money.
+          </h2>
+
+        </div>
+
+
+        <div class="security-flow">
+
+          <span>
+            402 QUOTE
+          </span>
+
+          <b>→</b>
+
+          <span>
+            POLICY CHECK
+          </span>
+
+          <b>→</b>
+
+          <span>
+            SIGN OR REFUSE
+          </span>
+
+          <b>→</b>
+
+          <span>
+            AUDIT
+          </span>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <footer>
+
+      <span>
+        Coin Purse
+      </span>
+
+      <span>
+        Base Sepolia · x402 · Testnet
+      </span>
+
+    </footer>
+
+  </div>
+
+
+  <script src="/app.js"></script>
+
+</body>
+</html>

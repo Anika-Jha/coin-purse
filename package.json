@@ -1,0 +1,40 @@
+{
+  "name": "coin-purse",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx src/server.ts",
+    "build": "tsc",
+    "start": "node dist/src/server.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "agent": "tsx buyer/run-agent.ts",
+    "seller:honest": "tsx src/sellers/honest.ts",
+    "seller:rogue": "tsx src/sellers/rogue.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hono/node-server": "^2.1.1",
+    "@x402/core": "^2.27.0",
+    "@x402/evm": "^2.27.0",
+    "@x402/fetch": "^2.27.0",
+    "@x402/hono": "^2.27.0",
+    "better-sqlite3": "^13.0.3",
+    "dotenv": "^18.0.4",
+    "hono": "^4.13.9",
+    "openai": "^7.23.0",
+    "viem": "^2.56.9",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^26.6.3",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.2"
+  }
+}
